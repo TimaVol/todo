@@ -1,0 +1,44 @@
+@use "core" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: get($fonts, "primary");
+  font-weight: normal;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  background: get($colors, "gradient");
+}
+
+a {
+  text-decoration: none;
+  @include adaptiv-font(40, 24);
+  z-index: z(page-wrapper);
+  display: block;
+}
+
+h3,
+h4,
+p,
+a {
+  color: get($colors, "font");
+}
