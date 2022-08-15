@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: get($fonts, "primary");
   font-weight: normal;
+  overflow: hidden;
 
   /* width */
   ::-webkit-scrollbar {

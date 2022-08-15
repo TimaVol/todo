@@ -1,3 +1,11 @@
+import Board from "../components/Board";
+import Form from "../components/Form";
+
 export default function Home() {
-  return <>{process.env.customKey}</>;
+  return (
+    <main>
+      <Form />
+      <Board />
+    </main>
+  );
 }
