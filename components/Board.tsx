@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import { notesState } from "../common/atoms";
 import { getDatafromLocalStorage } from "../common/functions";
 import Note from "./Note";
+import styles from "../styles/Home.module.scss";
 
 export default function Board() {
   const [notes, setNotes] = useRecoilState<object[]>(notesState);
@@ -17,5 +18,9 @@ export default function Board() {
     }
   }, [setNotes]);
 
-  return <Note />;
+  return (
+    <div className={styles.board}>
+      <Note />
+    </div>
+  );
 }

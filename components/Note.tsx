@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
 import { notesState } from "../common/atoms";
 import { getDatafromLocalStorage } from "../common/functions";
-
+import styles from "../styles/Home.module.scss";
 export default function Note() {
   const [notes, setNotes] = useRecoilState<object[]>(notesState);
 
@@ -20,7 +20,7 @@ export default function Note() {
   return (
     <>
       {notes?.map((item: any) => (
-        <div key={Math.random()}>
+        <div key={Math.random()} className={styles.note}>
           <h3>{item?.title}</h3>
           <p>{item?.description}</p>
           <button onClick={() => deleteHendler(item?.id)}>delete</button>

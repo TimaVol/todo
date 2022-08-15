@@ -1,15 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { notesState } from "../common/atoms";
 import { getDatafromLocalStorage } from "../common/functions";
-import styles from "../styles/components/Board.module.scss";
+import styles from "../styles/Home.module.scss";
 
 export default function Form() {
   const [title, setTitle] = useState<string>();
   const [description, setDescription] = useState<string>();
   const [notes, setNotes] = useRecoilState<object[]>(notesState);
 
-  const addHandler = () => {
+  const addHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const prevLocalStorage: any = getDatafromLocalStorage();
     let prevNotes = JSON.parse(prevLocalStorage.notes || "[]");
     const id = Math.random().toString();
@@ -28,10 +29,14 @@ export default function Form() {
   };
 
   return (
-    <div className={styles.form}>
-      <input type="text" onChange={(e) => setTitle(e.target.value)} />
-      <textarea rows={5} onChange={(e) => setDescription(e.target.value)} />
-      <button onClick={addHandler}>add</button>
-    </div>
+    <form className={styles.form} onSubmit={(e) => addHandler(e)}>
+      <input type="text" required onChange={(e) => setTitle(e.target.value)} />
+      <textarea
+        rows={5}
+        required
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <button type={"submit"}>add</button>
+    </form>
   );
 }
