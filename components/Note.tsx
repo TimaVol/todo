@@ -3,7 +3,7 @@ import { notesState } from "../common/atoms";
 import { getDatafromLocalStorage } from "../common/functions";
 import styles from "../styles/Home.module.scss";
 export default function Note() {
-  const [notes, setNotes] = useRecoilState<object[]>(notesState);
+  const [notes, setNotes] = useRecoilState(notesState);
 
   const deleteHendler = (id: string) => {
     const LocalStorageData: any = getDatafromLocalStorage();

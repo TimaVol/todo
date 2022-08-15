@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { RecoilState, useRecoilState } from "recoil";
 import { notesState } from "../common/atoms";
 import { getDatafromLocalStorage } from "../common/functions";
 import Note from "./Note";
 import styles from "../styles/Home.module.scss";
 
 export default function Board() {
-  const [notes, setNotes] = useRecoilState<object[]>(notesState);
+  const [notes, setNotes] = useRecoilState(notesState);
 
   useEffect(() => {
     const LocalStorageData: any = getDatafromLocalStorage();

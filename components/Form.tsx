@@ -7,7 +7,7 @@ import styles from "../styles/Home.module.scss";
 export default function Form() {
   const [title, setTitle] = useState<string>();
   const [description, setDescription] = useState<string>();
-  const [notes, setNotes] = useRecoilState<object[]>(notesState);
+  const [notes, setNotes] = useRecoilState(notesState);
 
   const addHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
